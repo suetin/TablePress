@@ -32,10 +32,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Set up the view with data and do things that are specific for this view.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param string               $action Action for this view.
 	 * @param array<string, mixed> $data   Data for this view.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	#[\Override]
 	public function setup( /* string */ $action, array $data ) /* : void */ {
@@ -90,10 +91,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Change Media View string "Insert into post" to "Insert into Table".
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, string> $strings Current set of Media View strings.
+	 *
 	 * @return array<string, string> Changed Media View strings.
+	 *@since 1.0.0
+	 *
 	 */
 	public function change_media_view_strings( array $strings ): array {
 		$strings['insertIntoPost'] = __( 'Insert into Table', 'tablepress' );
@@ -103,11 +105,12 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Adds custom screen options to the screen.
 	 *
-	 * @since 2.1.0
-	 *
 	 * @param string    $screen_settings Screen settings.
 	 * @param WP_Screen $screen          WP_Screen object.
+	 *
 	 * @return string Extended Screen settings.
+	 *@since 2.1.0
+	 *
 	 */
 	public function add_screen_options_output( /* string */ $screen_settings, WP_Screen $screen ): string {
 		// Don't use a type hint for the `$screen_settings` argument as many WordPress plugins seem to be returning `null` in their filter hook handlers.
@@ -189,10 +192,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Override parent class method, as the nonces for this view are generated in the JS code.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the text box.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	#[\Override]
 	protected function action_nonce_field( array $data, array $box ): void {
@@ -202,10 +206,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Print the content of the "Table Information" post meta box.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the meta box.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	public function postbox_table_information( array $data, array $box ): void {
 		?>
@@ -269,10 +274,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Print the content of the "Table Content" post meta box.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the meta box.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	public function postbox_table_data( array $data, array $box ): void {
 		echo "<script>\n";
@@ -307,10 +313,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Print the content of the "Table Manipulation" post meta box.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the meta box.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	public function postbox_table_manipulation( array $data, array $box ): void {
 		?>
@@ -364,6 +371,8 @@ class TablePress_Edit_View extends TablePress_View {
 			<?php _e( 'Selected columns', 'tablepress' ); ?>:&nbsp;
 			<input type="button" class="button button-hide-unhide" data-type="columns" data-action="hide" value="<?php esc_attr_e( 'Hide', 'tablepress' ); ?>" />
 			<input type="button" class="button button-hide-unhide" data-type="columns" data-action="unhide" value="<?php esc_attr_e( 'Show', 'tablepress' ); ?>" />
+			<input type="button" class="button button-align-left" data-type="columns" data-action="align_left" value="<?php esc_attr_e( 'Align left', 'tablepress' ); ?>" />
+			<input type="button" class="button button-align-center" data-type="columns" data-action="align_center" value="<?php esc_attr_e( 'Align center', 'tablepress' ); ?>" />
 		</td>
 	</tr>
 	<tr class="top-border">
@@ -383,10 +392,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Print the "Preview" and "Save Changes" button.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the text box.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	public function textbox_buttons( array $data, array $box ): void {
 		$preview_url = TablePress::url( array( 'action' => 'preview_table', 'item' => $data['table']['id'], 'return' => 'edit', 'return_item' => $data['table']['id'] ), true, 'admin-post.php' );
@@ -404,10 +414,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Print the "Delete Table" and "Export Table" buttons.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the text box.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	public function textbox_other_actions( array $data, array $box ): void {
 		$user_can_copy_table = current_user_can( 'tablepress_copy_table', $data['table']['id'] );
@@ -435,27 +446,31 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Print the hidden containers for the Preview.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the text box.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	public function textbox_hidden_containers( array $data, array $box ): void {
 		?>
 <div class="hidden-container">
 	<div id="advanced-editor">
-		<label id="advanced-editor-label" for="advanced-editor-content" class="screen-reader-text"><?php esc_html_e( 'Advanced Editor', 'tablepress' ); ?></label>
+		<label id="advanced-editor-label" for="advancededitorcontent" class="screen-reader-text"><?php esc_html_e( 'Advanced Editor', 'tablepress' ); ?></label>
 		<?php
 		$wp_editor_options = array(
-			'textarea_rows' => 10,
-			'tinymce'       => false,
+			// 'wpautop' => false,
+			'textarea_rows' => 20,
+			'teeny' => true,
+			'textarea_name' => 'advancededitorcontent',
+			'tinymce'       => true,
 			'quicktags'     => array(
 				'buttons' => 'strong,em,link,del,ins,img,code,spell,close',
 			),
+			// 'quicktags' => false,
 		);
-		wp_editor( '', 'advanced-editor-content', $wp_editor_options );
+		wp_editor( '', 'advancededitorcontent', $wp_editor_options );
 		?>
-	</div>
 </div>
 <div id="preview-container" class="hidden-container">
 	<div id="table-preview">
@@ -481,10 +496,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Print the content of the "Table Options" post meta box.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the meta box.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	public function postbox_table_options( array $data, array $box ): void {
 		?>
@@ -536,10 +552,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Print the content of the "Table Features for Site Visitors" post meta box.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the meta box.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	public function postbox_datatables_features( array $data, array $box ): void {
 		?>
@@ -592,10 +609,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Print a notification about a corrupted table.
 	 *
-	 * @since 1.4.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the text box.
+	 *
+	 *@since 1.4.0
+	 *
 	 */
 	public function textbox_corrupted_table( array $data, array $box ): void {
 		?>
@@ -627,10 +645,11 @@ class TablePress_Edit_View extends TablePress_View {
 	/**
 	 * Print the screen head text.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array<string, mixed> $data Data for this screen.
 	 * @param array<string, mixed> $box  Information about the text box.
+	 *
+	 *@since 1.0.0
+	 *
 	 */
 	public function textbox_head( array $data, array $box ): void {
 		echo '<p>';

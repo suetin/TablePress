@@ -1,1 +1,134 @@
-#tablepress-page form .postbox:not(.no-validation-highlighting) :invalid{border-color:#c00!important;box-shadow:0 0 0 1px #c00}#tablepress_import-import-form .column-2 label{margin-right:24px}.file-upload-area{position:relative;width:100%}.file-upload-area .dropzone{align-items:center;background-color:#f5f5f5;border:2px dashed #ddd;border-radius:4px;box-sizing:border-box;display:flex;flex-direction:column;font-size:18px;justify-content:center;margin-bottom:10px;min-height:180px;padding:20px;text-align:center;transition:background-color .3s ease-in-out;width:100%}.file-upload-area .dropzone span~span{font-style:italic}.file-upload-area:hover .dropzone{background:#fff;border:2px dashed #ccc}.file-upload-area #tables-import-file-upload{border:1px solid #0000;border-radius:4px;bottom:0;cursor:pointer;height:100%;left:0;opacity:0;position:absolute;right:0;top:0;width:100%}.file-upload-area #tables-import-file-upload+.dropzone.dragover,.file-upload-area #tables-import-file-upload:valid+.dropzone{background-color:#00ff001a;border-color:#0f06}.file-upload-area #tables-import-file-upload:focus+.dropzone{border-color:#2271b1}.postbox:not(.no-validation-highlighting) .file-upload-area #tables-import-file-upload:invalid+.dropzone{border-color:#c00}.jdropdown{width:100%}.jdropdown.jdropdown-searchbar.jdropdown-focus{z-index:100000}.jdropdown .jdropdown-header{background:#fff url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E") no-repeat right 5px top 55%;background-size:16px 16px;border-color:#8c8f94;border-radius:3px;padding:0 24px 0 8px}.jdropdown .jdropdown-header:hover,.jdropdown .jdropdown-header:hover::placeholder{color:#2271b1}.jdropdown .jdropdown-header:focus{border-color:#2271b1;box-shadow:0 0 0 1px #2271b1;color:#0a4b78}.jdropdown .jdropdown-header:focus::placeholder{color:#0a4b78}.jdropdown .jdropdown-header:active{border-color:#8c8f94;box-shadow:none}.jdropdown .jdropdown-container{max-width:100%}.jdropdown.disabled{pointer-events:none}.jdropdown.disabled .jdropdown-header{background-color:#f6f7f7;background-image:url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23a0a5aa%22%2F%3E%3C%2Fsvg%3E");border-color:#dcdcde;box-shadow:none;color:#a7aaad;cursor:default;text-shadow:0 1px 0 #fff;transform:none}.jdropdown.disabled .jdropdown-header::placeholder{color:#a7aaad}
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./admin/css/import.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/**
+ * CSS code for the "Import" screen.
+ *
+ * @package TablePress
+ * @subpackage Views CSS
+ * @author Tobias Bäthge
+ * @since 1.0.0
+ */
+/* Red border for form fields that have invalid values */
+#tablepress-page form .postbox:not(.no-validation-highlighting) :invalid {
+  border-color: #cc0000 !important;
+  box-shadow: 0 0 0 1px #cc0000;
+}
+
+/* Adjust positioning of labels in relation to checkboxes/radio buttons */
+#tablepress_import-import-form .column-2 label {
+  margin-right: 24px; /* some margin on radio buttons */
+}
+
+.file-upload-area {
+  width: 100%;
+  position: relative;
+}
+.file-upload-area .dropzone {
+  background-color: #f5f5f5;
+  border: 2px dashed #ddd;
+  border-radius: 4px;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* Print selected file names in italics. */
+}
+.file-upload-area .dropzone span ~ span {
+  font-style: italic;
+}
+.file-upload-area:hover .dropzone {
+  border: 2px dashed #cccccc;
+  background: #ffffff;
+}
+.file-upload-area #tables-import-file-upload {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  /* :focus style after :valid style to allow for both. */
+}
+.file-upload-area #tables-import-file-upload:valid + .dropzone,
+.file-upload-area #tables-import-file-upload + .dropzone.dragover {
+  border-color: rgba(0, 255, 0, 0.4);
+  background-color: rgba(0, 255, 0, 0.1);
+}
+.file-upload-area #tables-import-file-upload:focus + .dropzone {
+  border-color: #2271b1;
+}
+.postbox:not(.no-validation-highlighting) .file-upload-area #tables-import-file-upload:invalid + .dropzone {
+  border-color: #cc0000;
+}
+
+/* Style the artificial dropdown like a WP Core select field. */
+.jdropdown {
+  width: 100%;
+  /* Show the dropdown above WP Core UI elements on small screens (< 800px width). */
+  /* Prevent overflowing of the expanded list of options. */
+  /* Style the disabled state via a class, as the artificial dropdown can not use :disabled. */
+}
+.jdropdown.jdropdown-searchbar.jdropdown-focus {
+  z-index: 100000;
+}
+.jdropdown .jdropdown-header {
+  /* stylelint-disable-next-line function-url-quotes */
+  background: #ffffff url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E") no-repeat right 5px top 55%;
+  background-size: 16px 16px;
+  padding: 0 24px 0 8px;
+  border-color: #8c8f94;
+  border-radius: 3px;
+}
+.jdropdown .jdropdown-header:hover, .jdropdown .jdropdown-header:hover::placeholder {
+  color: #2271b1;
+}
+.jdropdown .jdropdown-header:focus {
+  border-color: #2271b1;
+  color: #0a4b78;
+  box-shadow: 0 0 0 1px #2271b1;
+}
+.jdropdown .jdropdown-header:focus::placeholder {
+  color: #0a4b78;
+}
+.jdropdown .jdropdown-header:active {
+  border-color: #8c8f94;
+  box-shadow: none;
+}
+.jdropdown .jdropdown-container {
+  max-width: 100%;
+}
+.jdropdown.disabled {
+  pointer-events: none;
+}
+.jdropdown.disabled .jdropdown-header {
+  color: #a7aaad;
+  border-color: #dcdcde;
+  background-color: #f6f7f7;
+  /* The SVG is arrow-down-alt2 from Dashicons. */
+  /* stylelint-disable-next-line function-url-quotes */
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23a0a5aa%22%2F%3E%3C%2Fsvg%3E");
+  box-shadow: none;
+  text-shadow: 0 1px 0 #ffffff;
+  cursor: default;
+  transform: none;
+}
+.jdropdown.disabled .jdropdown-header::placeholder {
+  color: #a7aaad;
+}
+
+/*# sourceMappingURL=import.css.map*/

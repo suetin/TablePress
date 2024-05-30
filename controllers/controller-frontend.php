@@ -734,6 +734,11 @@ JS;
 			$output .= '<pre>' . var_export( $render_options, true ) . '</pre>'; // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_export
 		}
 
+		// todo Подумать как лучше сделать
+		$pattern = '/(?<=\d) (?=\d)/';
+		$replacement = '&nbsp;';
+		$output = preg_replace($pattern, $replacement, $output);
+
 		return $output;
 	}
 
